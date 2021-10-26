@@ -10,6 +10,8 @@ RUN apt-get update && \
   apt-get -y install git unzip libzip-dev libicu-dev libonig-dev && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
+  pecl install xdebug && \
+  docker-php-ext-enable xdebug && \
   docker-php-ext-install intl pdo_mysql zip bcmath
 
 COPY ./php.ini /usr/local/etc/php/php.ini
